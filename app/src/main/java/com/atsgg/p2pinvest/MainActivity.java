@@ -12,11 +12,13 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.atsgg.p2pinvest.common.ActivityManager;
 import com.atsgg.p2pinvest.fragment.HomeFragment;
 import com.atsgg.p2pinvest.fragment.InvestFragment;
 import com.atsgg.p2pinvest.fragment.MeFragment;
 import com.atsgg.p2pinvest.fragment.MoreFragment;
 import com.atsgg.p2pinvest.utils.ToastUtil;
+import com.atsgg.p2pinvest.utils.UIUtils;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -65,8 +67,16 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
 
+
+
+        initData();
+    }
+
+    private void initData() {
         // 默认选择主页
         selectFragment(0);
+        // 将MainActivity加入自定义栈
+        ActivityManager.getInstance().add(this);
     }
 
 
@@ -110,7 +120,7 @@ public class MainActivity extends AppCompatActivity {
             mTransaction.show(homeFragment);
 
             ivMainHome.setImageResource(R.drawable.bid01);
-            tvMainHome.setTextColor(getResources().getColor(R.color.home_back_selected));
+            tvMainHome.setTextColor(UIUtils.getColor(R.color.home_back_selected));
 
         } else if (i == 1) {
             if (investFragment == null) {
@@ -120,7 +130,7 @@ public class MainActivity extends AppCompatActivity {
             mTransaction.show(investFragment);
 
             ivMainInvest.setImageResource(R.drawable.bid03);
-            tvMainInvest.setTextColor(getResources().getColor(R.color.home_back_selected));
+            tvMainInvest.setTextColor(UIUtils.getColor(R.color.home_back_selected));
         } else if (i == 2) {
             if (meFragment == null) {
                 meFragment = new MeFragment();
@@ -129,7 +139,7 @@ public class MainActivity extends AppCompatActivity {
             mTransaction.show(meFragment);
 
             ivMainMe.setImageResource(R.drawable.bid05);
-            tvMainMe.setTextColor(getResources().getColor(R.color.home_back_selected));
+            tvMainMe.setTextColor(UIUtils.getColor(R.color.home_back_selected));
         } else if (i == 3) {
             if (moreFragment == null) {
                 moreFragment = new MoreFragment();
@@ -138,7 +148,7 @@ public class MainActivity extends AppCompatActivity {
             mTransaction.show(moreFragment);
 
             ivMainMore.setImageResource(R.drawable.bid07);
-            tvMainMore.setTextColor(getResources().getColor(R.color.home_back_selected));
+            tvMainMore.setTextColor(UIUtils.getColor(R.color.home_back_selected));
         }
 
         // 切记要提交
@@ -152,10 +162,10 @@ public class MainActivity extends AppCompatActivity {
         ivMainMe.setImageResource(R.drawable.bid06);
         ivMainMore.setImageResource(R.drawable.bid08);
 
-        tvMainHome.setTextColor(getResources().getColor(R.color.home_back_unselected));
-        tvMainInvest.setTextColor(getResources().getColor(R.color.home_back_unselected));
-        tvMainMe.setTextColor(getResources().getColor(R.color.home_back_unselected));
-        tvMainMore.setTextColor(getResources().getColor(R.color.home_back_unselected));
+        tvMainHome.setTextColor(UIUtils.getColor(R.color.home_back_unselected));
+        tvMainInvest.setTextColor(UIUtils.getColor(R.color.home_back_unselected));
+        tvMainMe.setTextColor(UIUtils.getColor(R.color.home_back_unselected));
+        tvMainMore.setTextColor(UIUtils.getColor(R.color.home_back_unselected));
     }
 
     private void hideFragment() {

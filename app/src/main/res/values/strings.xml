@@ -1,3 +1,11 @@
 <resources>
     <string name="app_name">硅谷金融</string>
+
+    <string-array name="invest_tab">
+        <item >全部理财</item>
+        <item >投资理财</item>
+        <item >热门理财</item>
+
+    </string-array>
+
 </resources>
