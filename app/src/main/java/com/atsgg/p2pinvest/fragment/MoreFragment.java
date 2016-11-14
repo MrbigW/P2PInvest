@@ -1,20 +1,14 @@
 package com.atsgg.p2pinvest.fragment;
 
-import android.content.Context;
-import android.os.Bundle;
-import android.support.annotation.Nullable;
-import android.support.v4.app.Fragment;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.atsgg.p2pinvest.R;
-import com.atsgg.p2pinvest.utils.UIUtils;
+import com.atsgg.p2pinvest.common.BaseFragment;
+import com.loopj.android.http.RequestParams;
 
 import butterknife.BindView;
-import butterknife.ButterKnife;
 
 /**
  * Created by MrbigW on 2016/11/11.
@@ -24,7 +18,7 @@ import butterknife.ButterKnife;
  * -------------------=.=------------------------
  */
 
-public class MoreFragment extends Fragment {
+public class MoreFragment extends BaseFragment {
 
     @BindView(R.id.iv_top_back)
     ImageView ivTopBack;
@@ -32,28 +26,31 @@ public class MoreFragment extends Fragment {
     TextView tvBackTitle;
     @BindView(R.id.iv_top_setting)
     ImageView ivTopSetting;
-    private Context mContext;
 
     @Override
-    public void onCreate(@Nullable Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        mContext = getActivity();
+    protected RequestParams getParams() {
+        return null;
     }
 
-    @Nullable
     @Override
-    public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View view = UIUtils.getView(R.layout.fragment_more);
-        ButterKnife.bind(this, view);
-
-        initTitle();
-
-        return view;
+    protected String getUrl() {
+        return null;
     }
 
-    private void initTitle() {
+    @Override
+    protected void initData(byte[] content) {
+
+    }
+    @Override
+    protected void initTitle() {
         ivTopBack.setVisibility(View.INVISIBLE);
         tvBackTitle.setText("更多");
         ivTopSetting.setVisibility(View.INVISIBLE);
     }
+
+    @Override
+    public int getLayoutId() {
+        return R.layout.fragment_more;
+    }
+
 }

@@ -2,6 +2,7 @@ package com.atsgg.p2pinvest.utils;
 
 import android.content.Context;
 import android.os.Handler;
+import android.os.Process;
 import android.view.View;
 
 import com.atsgg.p2pinvest.common.MyApplication;
@@ -81,12 +82,41 @@ public class UIUtils {
 
     /**
      * 获取指定id的字符串数组
+     *
      * @param strArryId
      * @return
      */
     public static String[] getStrArray(int strArryId) {
         return getContext().getResources().getStringArray(strArryId);
     }
+
+    /**
+     * 保证在主线程中操作
+     *
+     * @param runnable
+     */
+    public static void runOnUiThread(Runnable runnable) {
+
+        if (isMainThread()) {
+            runnable.run();
+        } else {
+            UIUtils.getHandler().post(runnable);
+        }
+
+    }
+
+    /**
+     * 判断是否在主线程
+     *
+     * @return
+     */
+    private static boolean isMainThread() {
+
+        int currendThreadId = Process.myTid();
+
+        return MyApplication.mainThreadId == currendThreadId;
+    }
+
 
 }
 
