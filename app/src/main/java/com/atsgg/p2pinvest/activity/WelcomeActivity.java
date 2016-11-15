@@ -1,8 +1,8 @@
 package com.atsgg.p2pinvest.activity;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
 import android.view.WindowManager;
 import android.view.animation.AccelerateDecelerateInterpolator;
 import android.view.animation.AlphaAnimation;
@@ -17,7 +17,7 @@ import com.atsgg.p2pinvest.R;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-public class WelcomeActivity extends AppCompatActivity {
+public class WelcomeActivity extends Activity {
 
     @BindView(R.id.iv_welcome_icon)
     ImageView ivWelcomeIcon;

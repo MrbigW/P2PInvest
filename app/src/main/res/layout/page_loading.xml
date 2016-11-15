@@ -9,6 +9,7 @@
         android:layout_width="100dp"
         android:layout_height="110dp"
         style="?android:progressBarStyleInverse"
+        android:indeterminateDrawable="@drawable/page_loading"
         />
 
     <TextView

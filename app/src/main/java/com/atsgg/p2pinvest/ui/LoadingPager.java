@@ -40,6 +40,7 @@ public abstract class LoadingPager extends FrameLayout {
     private View view_empty;
     private View view_success;
 
+    private Context mContext;
 
     public LoadingPager(Context context) {
         this(context, null);
@@ -51,7 +52,7 @@ public abstract class LoadingPager extends FrameLayout {
 
     public LoadingPager(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
-
+        this.mContext = context;
         init();
     }
 
@@ -100,7 +101,8 @@ public abstract class LoadingPager extends FrameLayout {
         view_empty.setVisibility(state_current == STATE_EMPTY ? View.VISIBLE : View.GONE);
 
         if (view_success == null) {
-            view_success = UIUtils.getView(layoutId());
+//            view_success = UIUtils.getView(layoutId());
+            view_success = View.inflate(mContext,layoutId(),null);
             addView(view_success);
         }
         view_success.setVisibility(state_current == STATE_SUCCESS ? View.VISIBLE : View.GONE);
@@ -117,7 +119,7 @@ public abstract class LoadingPager extends FrameLayout {
     public void show() {
 
         String url = url();
-        if(TextUtils.isEmpty(url)) {
+        if (TextUtils.isEmpty(url)) {
             resultState = ResultState.SUCCESS;
             resultState.setContent(null);
             loadPage();
@@ -149,7 +151,7 @@ public abstract class LoadingPager extends FrameLayout {
                     }
                 });
             }
-        },2000);
+        }, 2000);
 
     }
 
