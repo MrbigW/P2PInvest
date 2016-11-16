@@ -1,6 +1,6 @@
 package com.atsgg.p2pinvest.adapter;
 
-import android.os.SystemClock;
+import android.view.Gravity;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
@@ -9,6 +9,7 @@ import android.widget.TextView;
 import com.atsgg.p2pinvest.R;
 import com.atsgg.p2pinvest.bean.Product;
 import com.atsgg.p2pinvest.ui.RoundProgress;
+import com.atsgg.p2pinvest.utils.UIUtils;
 
 import java.util.List;
 
@@ -33,7 +34,7 @@ public class ProductListAdapter extends BaseAdapter {
 
     @Override
     public int getCount() {
-        return mProducts == null ? 0 : mProducts.size();
+        return mProducts == null ? 0 : mProducts.size() + 1;
     }
 
     @Override
@@ -48,6 +49,21 @@ public class ProductListAdapter extends BaseAdapter {
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
+
+        int itemViewType = getItemViewType(position);
+        if (itemViewType == 0) {
+            TextView textView = new TextView(parent.getContext());
+            textView.setText("这是个没卵用的TextView");
+            textView.setTextSize(UIUtils.dp2px(12));
+            textView.setTextColor(UIUtils.getColor(R.color.home_back_selected));
+            textView.setGravity(Gravity.CENTER);
+            return textView;
+        }
+
+        if (position > 3) {
+            position--;
+        }
+
         ViewHolder viewHolder;
         if (convertView == null) {
             convertView = View.inflate(parent.getContext(), R.layout.item_product_list, null);
@@ -57,35 +73,32 @@ public class ProductListAdapter extends BaseAdapter {
             viewHolder = (ViewHolder) convertView.getTag();
         }
 
-        final RoundProgress progress = (RoundProgress) convertView.findViewById(R.id.p_progresss);
-
-        final Product.DataBean product = mProducts.get(position);
+        Product.DataBean product = mProducts.get(position);
         viewHolder.pName.setText(product.getName());
         viewHolder.pMoney.setText(product.getMoney());
         viewHolder.pMinnum.setText(product.getMemberNum());
         viewHolder.pMinzouzi.setText(product.getMinTouMoney());
         viewHolder.pSuodingdays.setText(product.getSuodingDays());
         viewHolder.pYearlv.setText(product.getYearRate());
-//        viewHolder.pProgresss.setProgress(Integer.parseInt(product.getProgress()));
-
-        new Thread(new Runnable() {
-            @Override
-            public void run() {
-                progress.setMax(100);
-                progress.setProgress(0);
-
-                for (int i = 0; i < Integer.parseInt(product.getProgress()); i++) {
-                    progress.setProgress(progress.getProgress() + 1);
-                    SystemClock.sleep(30);
-                    progress.postInvalidate();
-                }
-
-            }
-        }).start();
+        viewHolder.pProgresss.setProgress(Integer.parseInt(product.getProgress()));
 
         return convertView;
     }
 
+
+    @Override
+    public int getItemViewType(int position) {
+        if (position == 3) {
+            return 0;
+        } else {
+            return 1;
+        }
+    }
+
+    @Override
+    public int getViewTypeCount() {
+        return 2;
+    }
 
     static class ViewHolder {
         @BindView(R.id.p_name)
