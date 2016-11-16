@@ -1,16 +1,100 @@
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
              xmlns:tools="http://schemas.android.com/tools"
              android:layout_width="match_parent"
              android:layout_height="match_parent"
              tools:context="com.atsgg.p2pinvest.fragment.ProductHotFragment">
 
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:gravity="center"
-        android:text="推荐投资"
-        android:textColor="@color/title_text"
-        android:textSize="30sp"/>
+    <com.atsgg.p2pinvest.ui.FlowLayout
+        android:background="#e6dbdb"
+        android:id="@+id/flow_layout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
 
-</FrameLayout>
+
+        <!--<TextView-->
+            <!--android:textSize="20sp"-->
+            <!--android:layout_margin="10dp"-->
+            <!--android:text="钢铁侠"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"/>-->
+    <!--<TextView-->
+            <!--android:textSize="20sp"-->
+            <!--android:layout_margin="10dp"-->
+            <!--android:text="我只喜欢你"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"/>-->
+    <!--<TextView-->
+            <!--android:textSize="20sp"-->
+            <!--android:layout_margin="10dp"-->
+            <!--android:text="致姗姗来迟的你"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"/>-->
+    <!--<TextView-->
+            <!--android:textSize="20sp"-->
+            <!--android:layout_margin="10dp"-->
+            <!--android:text="中国好声音"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"/>-->
+    <!--<TextView-->
+            <!--android:textSize="20sp"-->
+            <!--android:layout_margin="10dp"-->
+            <!--android:text="J20战斗机在航展大放光彩"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"/>-->
+    <!--<TextView-->
+            <!--android:textSize="20sp"-->
+            <!--android:layout_margin="10dp"-->
+            <!--android:text="拉克丝"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"/>-->
+    <!--<TextView-->
+            <!--android:textSize="20sp"-->
+            <!--android:layout_margin="10dp"-->
+            <!--android:text="宝宝不开心"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"/>-->
+    <!--<TextView-->
+            <!--android:textSize="20sp"-->
+            <!--android:layout_margin="10dp"-->
+            <!--android:text="蓝瘦香菇"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"/>-->
+    <!--<TextView-->
+            <!--android:textSize="20sp"-->
+            <!--android:layout_margin="10dp"-->
+            <!--android:text="红色代表激情，代表革命"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"/>-->
+    <!--<TextView-->
+            <!--android:textSize="20sp"-->
+            <!--android:layout_margin="10dp"-->
+            <!--android:text="友谊的小船说翻就翻"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"/>-->
+    <!--<TextView-->
+            <!--android:textSize="20sp"-->
+            <!--android:layout_margin="10dp"-->
+            <!--android:text="我有一个大宝贝"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"/>-->
+    <!--<TextView-->
+            <!--android:textSize="20sp"-->
+            <!--android:layout_margin="10dp"-->
+            <!--android:text="Sody_gigi真是可爱"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"/>-->
+    <!--<TextView-->
+            <!--android:textSize="20sp"-->
+            <!--android:layout_margin="10dp"-->
+            <!--android:text="川普成功逆袭入住白宫"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"/>-->
+
+
+
+    </com.atsgg.p2pinvest.ui.FlowLayout>
+
+
+
+</LinearLayout>

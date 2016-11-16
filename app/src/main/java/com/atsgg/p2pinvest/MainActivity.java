@@ -1,8 +1,6 @@
 package com.atsgg.p2pinvest;
 
-import android.os.Bundle;
 import android.os.Handler;
-import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.view.KeyEvent;
@@ -12,7 +10,7 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import com.atsgg.p2pinvest.common.ActivityManager;
+import com.atsgg.p2pinvest.common.BaseActivity;
 import com.atsgg.p2pinvest.fragment.HomeFragment;
 import com.atsgg.p2pinvest.fragment.InvestFragment;
 import com.atsgg.p2pinvest.fragment.MeFragment;
@@ -21,10 +19,9 @@ import com.atsgg.p2pinvest.utils.ToastUtil;
 import com.atsgg.p2pinvest.utils.UIUtils;
 
 import butterknife.BindView;
-import butterknife.ButterKnife;
 import butterknife.OnClick;
 
-public class MainActivity extends FragmentActivity {
+public class MainActivity extends BaseActivity {
 
     @BindView(R.id.fl_main)
     FrameLayout flMain;
@@ -61,22 +58,21 @@ public class MainActivity extends FragmentActivity {
     private MeFragment meFragment;
     private MoreFragment moreFragment;
 
+
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-        ButterKnife.bind(this);
+    protected void initTitle() {
 
-
-
-        initData();
     }
 
-    private void initData() {
+    protected void initData() {
         // 默认选择主页
         selectFragment(0);
-        // 将MainActivity加入自定义栈
-        ActivityManager.getInstance().add(this);
+
+    }
+
+    @Override
+    protected int getLayoutId() {
+        return R.layout.activity_main;
     }
 
 
