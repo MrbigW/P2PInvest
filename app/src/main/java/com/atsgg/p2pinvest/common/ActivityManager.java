@@ -45,10 +45,11 @@ public class ActivityManager {
 //                mActivityStack.remove(i);
 //            }
 //        }
+
         for (int i = mActivityStack.size() - 1; i >= 0; i--) {
             if (activity != null && activity.getClass().equals(mActivityStack.get(i).getClass())) {
                 // 销毁当前Activity对象
-                activity.finish();
+                mActivityStack.get(i).finish();
                 // 将指定的activity对象从栈空间移除
                 mActivityStack.remove(i);
             }

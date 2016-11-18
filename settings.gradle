@@ -1,2 +1,3 @@
-include ':app'
+include ':app', ':MPChartLib', ':MPChartExample'
 include ':ViewPagerIndicator'
+include ':alipay_demo'

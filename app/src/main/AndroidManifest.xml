@@ -22,6 +22,17 @@
     <uses-permission android:name="android.permission.RESTART_PACKAGES"/>
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
 
+    <activity
+        android:name="com.alipay.sdk.app.H5PayActivity"
+        android:configChanges="orientation|keyboardHidden|navigation"
+        android:exported="false"
+        android:screenOrientation="behind"/>
+    <activity
+        android:name="com.alipay.sdk.auth.AuthActivity"
+        android:configChanges="orientation|keyboardHidden|navigation"
+        android:exported="false"
+        android:screenOrientation="behind"/>
+
     <application
         android:name=".common.MyApplication"
         android:allowBackup="true"
@@ -42,6 +53,26 @@
         </activity>
         <activity android:name=".activity.LoginActivity">
         </activity>
+        <activity android:name=".activity.UserInfoAcitvity">
+        </activity>
+        <activity android:name=".activity.ChongZhiActivity">
+        </activity>
+        <activity android:name=".activity.TiXianActivity">
+        </activity>
+
+        <!-- alipay sdk begin -->
+        <activity
+            android:name="com.alipay.sdk.app.H5PayActivity"
+            android:configChanges="orientation|keyboardHidden|navigation"
+            android:exported="false"
+            android:screenOrientation="behind"></activity>
+        <activity
+            android:name="com.alipay.sdk.auth.AuthActivity"
+            android:configChanges="orientation|keyboardHidden|navigation"
+            android:exported="false"
+            android:screenOrientation="behind"></activity>
+        <!-- alipay sdk end -->
+
     </application>
 
 </manifest>

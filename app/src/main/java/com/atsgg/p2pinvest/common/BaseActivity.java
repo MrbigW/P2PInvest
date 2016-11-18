@@ -106,6 +106,28 @@ public abstract class BaseActivity extends FragmentActivity {
         editor.commit();
     }
 
+    public UserInfo.DataBean readUser() {
+        UserInfo userInfo = new UserInfo();
+
+        SharedPreferences sp = this.getSharedPreferences("user_info", Context.MODE_PRIVATE);
+
+        String uf_acc = sp.getString("UF_ACC", "");
+        String uf_avatar = sp.getString("UF_AVATAR", "");
+        String uf_is_cert = sp.getString("UF_IS_CERT", "");
+        String uf_phone = sp.getString("UF_PHONE", "");
+
+        UserInfo.DataBean data = new UserInfo.DataBean();
+        data.setUF_ACC(uf_acc);
+        data.setUF_AVATAR_URL(uf_avatar);
+        data.setUF_IS_CERT(uf_is_cert);
+        data.setUF_PHONE(uf_phone);
+
+        userInfo.setData(data);
+
+        return userInfo.getData();
+
+    }
+
 }
 
 

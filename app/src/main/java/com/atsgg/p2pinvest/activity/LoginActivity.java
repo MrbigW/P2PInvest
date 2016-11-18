@@ -67,7 +67,7 @@ public class LoginActivity extends BaseActivity {
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.iv_top_back:
-                finish();
+               this.removeCurrentActivity();
                 break;
             case R.id.log_log_btn:
                 // 1.获取手机号和加密以后的密码

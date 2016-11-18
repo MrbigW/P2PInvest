@@ -7,7 +7,7 @@ android {
     defaultConfig {
         applicationId "com.atsgg.p2pinvest"
         minSdkVersion 16
-        targetSdkVersion 24
+        targetSdkVersion 22
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
@@ -35,4 +35,5 @@ dependencies {
     compile 'com.android.support:support-v4:24.2.1'
     testCompile 'junit:junit:4.12'
     apt 'com.jakewharton:butterknife-compiler:8.4.0'
+    compile files('libs/alipaysdk.jar')
 }
