@@ -67,7 +67,6 @@ public class MainActivity extends BaseActivity {
     protected void initData() {
         // 默认选择主页
         selectFragment(0);
-
     }
 
     @Override

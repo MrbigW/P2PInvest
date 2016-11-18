@@ -11,8 +11,9 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.atsgg.p2pinvest.R;
+import com.atsgg.p2pinvest.activity.LoginActivity;
+import com.atsgg.p2pinvest.common.BaseActivity;
 import com.atsgg.p2pinvest.common.BaseFragment;
-import com.atsgg.p2pinvest.utils.ToastUtil;
 import com.loopj.android.http.RequestParams;
 
 import butterknife.BindView;
@@ -108,7 +109,8 @@ public class MeFragment extends BaseFragment {
                 .setPositiveButton("确定", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
-                        ToastUtil.showToast(getActivity(),"正在登录");
+//                        ToastUtil.showToast(getActivity(),"正在登录");
+                        ((BaseActivity)MeFragment.this.getActivity()).goToActivity(LoginActivity.class,null);
                     }
                 })
                 .setCancelable(false)
